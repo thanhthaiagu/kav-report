@@ -9,88 +9,54 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1865F2;
-            --primary-dark: #0D47A1;
-            --navy: #1B365D;
-            --bg: #F8FAFC;
-            --card-bg: #FFFFFF;
-            --border: #E2E8F0;
-            --text-main: #0F172A;
-            --text-muted: #64748B;
-            --success: #10B981;
+            --primary: #1865F2; --primary-dark: #0D47A1; --navy: #1B365D;
+            --bg: #F8FAFC; --card-bg: #FFFFFF; --border: #E2E8F0;
+            --text-main: #0F172A; --text-muted: #64748B;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background-color: var(--bg); color: var(--text-main); padding: 24px 16px; line-height: 1.5; }
         .container { max-width: 1200px; margin: 0 auto; }
         .header-card { background: linear-gradient(135deg, var(--navy) 0%, var(--primary-dark) 100%); color: white; padding: 32px 24px; border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 25px -5px rgba(27, 54, 93, 0.15); }
-        .header-card h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .header-card h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
         .header-card p { opacity: 0.85; font-size: 14px; }
-        .btn-download { display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; color: var(--navy); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 16px; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+        .btn-download { display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; color: var(--navy); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 16px; transition: all 0.2s; }
         .btn-download:hover { background: #F1F5F9; transform: translateY(-2px); }
-        
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
-        .stat-card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .stat-card .label { font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); }
+        .stat-card .label { font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; }
         .stat-card .value { font-size: 28px; font-weight: 700; color: var(--navy); margin-top: 4px; }
-        
-        .table-card { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .table-card { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; }
         .table-toolbar { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
         .search-box { padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; width: 280px; font-size: 14px; outline: none; }
-        .search-box:focus { border-color: var(--primary); ring: 2px rgba(24,101,242,0.2); }
-        
         .table-container { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
         th { background: #F8FAFC; color: var(--text-muted); font-weight: 600; padding: 14px 16px; border-bottom: 1px solid var(--border); white-space: nowrap; }
         td { padding: 14px 16px; border-bottom: 1px solid var(--border); }
         tr:hover td { background-color: #F8FAFC; }
-        
         .badge { display: inline-block; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; }
         .badge-10 { background: #DBEAFE; color: #1E40AF; }
         .badge-11 { background: #D1FAE5; color: #065F46; }
         .badge-12 { background: #EDE9FE; color: #5B21B6; }
-        
         .total-row { background: #EBF2FA; font-weight: 700; }
-        .total-row td { border-top: 2px solid var(--navy); border-bottom: none; }
+        .total-row td { border-top: 2px solid var(--navy); }
         .text-center { text-align: center; }
         .text-right { text-align: right; }
         .highlight { font-weight: 600; color: var(--primary-dark); }
-        
-        @media (max-width: 768px) {
-            .header-card { padding: 24px 16px; }
-            .header-card h1 { font-size: 20px; }
-            .search-box { width: 100%; }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header-card">
             <h1>BÁO CÁO KỸ NĂNG THÀNH THẠO KHAN ACADEMY (KAV)</h1>
-            <p>Thời gian thống kê: 22/09/2026 12:12 | Nguồn: classroom.khanacademy.org</p>
-            <a href="BaoCao_KAV.xlsx" class="btn-download" download>
-                📥 Tải file Excel Báo Cáo (.xlsx)
-            </a>
+            <p>Thời gian thống kê: 22/09/2026 13:00 | Nguồn: classroom.khanacademy.org</p>
+            <a href="BaoCao_KAV.xlsx" class="btn-download" download>📥 Tải file Excel Báo Cáo (.xlsx)</a>
         </div>
-
         <div class="stats-grid">
-            <div class="stat-card">
-                <div class="label">Tổng Số Lớp Học</div>
-                <div class="value">20</div>
-            </div>
-            <div class="stat-card">
-                <div class="label">Tổng Tài Khoản Đã Tạo</div>
-                <div class="value">821</div>
-            </div>
-            <div class="stat-card">
-                <div class="label">Đang Hoạt Động</div>
-                <div class="value">173</div>
-            </div>
-            <div class="stat-card">
-                <div class="label">Kỹ Năng TB Thành Thạo</div>
-                <div class="value" style="color: #10B981;">0.9</div>
-            </div>
+            <div class="stat-card"><div class="label">Tổng Số Lớp</div><div class="value">20</div></div>
+            <div class="stat-card"><div class="label">Tài Khoản Đã Tạo</div><div class="value">821</div></div>
+            <div class="stat-card"><div class="label">Đang Hoạt Động</div><div class="value">173</div></div>
+            <div class="stat-card"><div class="label">Kỹ Năng TB Thành Thạo</div><div class="value" style="color: #10B981;">0.9</div></div>
         </div>
-
         <div class="table-card">
             <div class="table-toolbar">
                 <div style="font-weight: 600; color: var(--navy);">Chi Tiết Từng Lớp Học</div>
@@ -110,208 +76,186 @@
                         </tr>
                     </thead>
                     <tbody>
-
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">1</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">GC65CJ23</code></td>
-                            <td style="font-weight: 500;">10A1_Năm học 2026-2027_Nguyễn Thị Yến Linh</td>
-                            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-                            <td class="text-right">44</td>
-                            <td class="text-right highlight">43</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">6.6</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">2</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">H4S4C7P2</code></td>
-                            <td style="font-weight: 500;">10A2_Năm học 2026-2027_Trần Minh Mẫn</td>
-                            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-                            <td class="text-right">47</td>
-                            <td class="text-right highlight">4</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.1</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">3</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">FHGUSN4Z</code></td>
-                            <td style="font-weight: 500;">10A4_Năm học 2026-2027_Văn Thị Bích Thùy</td>
-                            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-                            <td class="text-right">44</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">4</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">4NH4T2A4</code></td>
-                            <td style="font-weight: 500;">10A5_Năm học 2026-2027_Nguyễn Ngọc Thịnh</td>
-                            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-                            <td class="text-right">46</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">5</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">VZQP4YAF</code></td>
-                            <td style="font-weight: 500;">10A6_Năm học 2026-2027_Nguyễn Ngọc Thịnh</td>
-                            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-                            <td class="text-right">46</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">6</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">KMR6W4FR</code></td>
-                            <td style="font-weight: 500;">10A7_Năm học 2026-2027_Nguyễn Chí Huy</td>
-                            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-                            <td class="text-right">33</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">7</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">DZWFS5NS</code></td>
-                            <td style="font-weight: 500;">10A8_Năm học 2026-2027_Nguyễn Thành Thái</td>
-                            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-                            <td class="text-right">44</td>
-                            <td class="text-right highlight">10</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.8</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">8</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PJP8ZHQ5</code></td>
-                            <td style="font-weight: 500;">11A1_Năm học 2026-2027_Nguyễn Ngọc Thịnh</td>
-                            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-                            <td class="text-right">41</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">9</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">UQ77Z4F8</code></td>
-                            <td style="font-weight: 500;">11A2_Năm học 2026-2027_Nguyễn Thị Yến Linh</td>
-                            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-                            <td class="text-right">41</td>
-                            <td class="text-right highlight">31</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">3.2</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">10</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">6JZUDEYH</code></td>
-                            <td style="font-weight: 500;">11A3_Năm Học 2026-2027_Mai Thành Công</td>
-                            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-                            <td class="text-right">44</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">11</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">NFPJ3YUZ</code></td>
-                            <td style="font-weight: 500;">11A4_Năm học 2026-2027_Nguyễn Thị Yến Linh</td>
-                            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-                            <td class="text-right">46</td>
-                            <td class="text-right highlight">37</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">5.2</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">12</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">EJ5JBTPM</code></td>
-                            <td style="font-weight: 500;">11A5_ Năm Học 2026-2027_Nguyễn Ngọc Thịnh</td>
-                            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-                            <td class="text-right">33</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">13</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N6D6F43M</code></td>
-                            <td style="font-weight: 500;">11A6_Năm học 2026-2027_Mai Thành Công</td>
-                            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-                            <td class="text-right">37</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">14</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Y4KXVHFH</code></td>
-                            <td style="font-weight: 500;">12A1-Năm học 2026-2027_Trần Thị Bội Nhung</td>
-                            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-                            <td class="text-right">35</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">15</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">7B39B8FY</code></td>
-                            <td style="font-weight: 500;">12A2 - Năm học 2026-2027_Nguyễn Thành Thái</td>
-                            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-                            <td class="text-right">43</td>
-                            <td class="text-right highlight">16</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.3</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">16</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">2DXNAW8H</code></td>
-                            <td style="font-weight: 500;">12A3-Năm học 2026-2027_Mai Thành Công</td>
-                            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-                            <td class="text-right">40</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">17</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">2T2BZU9H</code></td>
-                            <td style="font-weight: 500;">12A4-Năm học 2026-2027_Nguyễn Thành Thái</td>
-                            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-                            <td class="text-right">37</td>
-                            <td class="text-right highlight">11</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.1</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">18</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">MF9R2SND</code></td>
-                            <td style="font-weight: 500;">12A5 - Năm học 2026-2027_Trần Thị Bội Nhung</td>
-                            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-                            <td class="text-right">50</td>
-                            <td class="text-right highlight">2</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">19</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">BQKUESU3</code></td>
-                            <td style="font-weight: 500;">12A6 _Năm học 2026-2027_Nguyễn Thành Thái</td>
-                            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-                            <td class="text-right">42</td>
-                            <td class="text-right highlight">19</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">1.2</td>
-                        </tr>
-    
-                        <tr>
-                            <td class="text-center" style="color: var(--text-muted);">20</td>
-                            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Q96EYDVA</code></td>
-                            <td style="font-weight: 500;">12A7 - Năm học 2026 - 2027_Trần Thị Bội Nhung</td>
-                            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-                            <td class="text-right">28</td>
-                            <td class="text-right highlight">0</td>
-                            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-                        </tr>
-    
-                    </tbody>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">1</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">GC65CJ23</code></td>
+            <td style="font-weight: 500;">10A1_Năm học 2026-2027_Nguyễn Thị Yến Linh</td>
+            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
+            <td class="text-right">44</td>
+            <td class="text-right highlight">43</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">6.6</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">2</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">H4S4C7P2</code></td>
+            <td style="font-weight: 500;">10A2_Năm học 2026-2027_Trần Minh Mẫn</td>
+            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
+            <td class="text-right">47</td>
+            <td class="text-right highlight">4</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.1</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">3</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">FHGUSN4Z</code></td>
+            <td style="font-weight: 500;">10A4_Năm học 2026-2027_Văn Thị Bích Thùy</td>
+            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
+            <td class="text-right">44</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">4</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">4NH4T2A4</code></td>
+            <td style="font-weight: 500;">10A5_Năm học 2026-2027_Nguyễn Ngọc Thịnh</td>
+            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
+            <td class="text-right">46</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">5</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">VZQP4YAF</code></td>
+            <td style="font-weight: 500;">10A6_Năm học 2026-2027_Nguyễn Ngọc Thịnh</td>
+            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
+            <td class="text-right">46</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">6</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">KMR6W4FR</code></td>
+            <td style="font-weight: 500;">10A7_Năm học 2026-2027_Nguyễn Chí Huy</td>
+            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
+            <td class="text-right">33</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">7</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">DZWFS5NS</code></td>
+            <td style="font-weight: 500;">10A8_Năm học 2026-2027_Nguyễn Thành Thái</td>
+            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
+            <td class="text-right">44</td>
+            <td class="text-right highlight">10</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.8</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">8</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PJP8ZHQ5</code></td>
+            <td style="font-weight: 500;">11A1_Năm học 2026-2027_Nguyễn Ngọc Thịnh</td>
+            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
+            <td class="text-right">41</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">9</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">UQ77Z4F8</code></td>
+            <td style="font-weight: 500;">11A2_Năm học 2026-2027_Nguyễn Thị Yến Linh</td>
+            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
+            <td class="text-right">41</td>
+            <td class="text-right highlight">31</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">3.2</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">10</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">6JZUDEYH</code></td>
+            <td style="font-weight: 500;">11A3_Năm Học 2026-2027_Mai Thành Công</td>
+            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
+            <td class="text-right">44</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">11</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">NFPJ3YUZ</code></td>
+            <td style="font-weight: 500;">11A4_Năm học 2026-2027_Nguyễn Thị Yến Linh</td>
+            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
+            <td class="text-right">46</td>
+            <td class="text-right highlight">37</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">5.2</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">12</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">EJ5JBTPM</code></td>
+            <td style="font-weight: 500;">11A5_ Năm Học 2026-2027_Nguyễn Ngọc Thịnh</td>
+            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
+            <td class="text-right">33</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">13</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N6D6F43M</code></td>
+            <td style="font-weight: 500;">11A6_Năm học 2026-2027_Mai Thành Công</td>
+            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
+            <td class="text-right">37</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">14</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Y4KXVHFH</code></td>
+            <td style="font-weight: 500;">12A1-Năm học 2026-2027_Trần Thị Bội Nhung</td>
+            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
+            <td class="text-right">35</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">15</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">7B39B8FY</code></td>
+            <td style="font-weight: 500;">12A2 - Năm học 2026-2027_Nguyễn Thành Thái</td>
+            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
+            <td class="text-right">43</td>
+            <td class="text-right highlight">16</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.3</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">16</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">2DXNAW8H</code></td>
+            <td style="font-weight: 500;">12A3-Năm học 2026-2027_Mai Thành Công</td>
+            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
+            <td class="text-right">40</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">17</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">2T2BZU9H</code></td>
+            <td style="font-weight: 500;">12A4-Năm học 2026-2027_Nguyễn Thành Thái</td>
+            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
+            <td class="text-right">37</td>
+            <td class="text-right highlight">11</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.1</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">18</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">MF9R2SND</code></td>
+            <td style="font-weight: 500;">12A5 - Năm học 2026-2027_Trần Thị Bội Nhung</td>
+            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
+            <td class="text-right">50</td>
+            <td class="text-right highlight">2</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">19</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">BQKUESU3</code></td>
+            <td style="font-weight: 500;">12A6 _Năm học 2026-2027_Nguyễn Thành Thái</td>
+            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
+            <td class="text-right">42</td>
+            <td class="text-right highlight">19</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">1.2</td>
+        </tr>
+        <tr>
+            <td class="text-center" style="color: var(--text-muted);">20</td>
+            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Q96EYDVA</code></td>
+            <td style="font-weight: 500;">12A7 - Năm học 2026 - 2027_Trần Thị Bội Nhung</td>
+            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
+            <td class="text-right">28</td>
+            <td class="text-right highlight">0</td>
+            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
+        </tr></tbody>
                     <tfoot>
                         <tr class="total-row">
                             <td colspan="4" class="text-right">TỔNG CỘNG / TRUNG BÌNH TOÀN BỘ:</td>
@@ -324,21 +268,12 @@
             </div>
         </div>
     </div>
-
     <script>
         function filterTable() {
-            const input = document.getElementById("searchInput");
-            const filter = input.value.toLowerCase();
-            const table = document.getElementById("reportTable");
-            const tr = table.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
-
+            const filter = document.getElementById("searchInput").value.toLowerCase();
+            const tr = document.getElementById("reportTable").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
             for (let i = 0; i < tr.length; i++) {
-                const tdText = tr[i].textContent || tr[i].innerText;
-                if (tdText.toLowerCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
+                tr[i].style.display = (tr[i].textContent.toLowerCase().indexOf(filter) > -1) ? "" : "none";
             }
         }
     </script>

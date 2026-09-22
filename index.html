@@ -19,8 +19,23 @@
         .header-card { background: linear-gradient(135deg, var(--navy) 0%, var(--primary-dark) 100%); color: white; padding: 32px 24px; border-radius: 16px; margin-bottom: 24px; box-shadow: 0 10px 25px -5px rgba(27, 54, 93, 0.15); }
         .header-card h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
         .header-card p { opacity: 0.85; font-size: 14px; }
-        .btn-download { display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; color: var(--navy); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 16px; transition: all 0.2s; }
+        .btn-group { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-top: 16px; }
+        .btn-download { display: inline-flex; align-items: center; gap: 8px; background: #FFFFFF; color: var(--navy); padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
         .btn-download:hover { background: #F1F5F9; transform: translateY(-2px); }
+        .btn-update { display: inline-flex; align-items: center; gap: 8px; background: #10B981; color: white; padding: 10px 20px; border-radius: 8px; border: none; text-decoration: none; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.25); }
+        .btn-update:hover { background: #059669; transform: translateY(-2px); }
+        
+        /* Modal Popup */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 999; justify-content: center; align-items: center; padding: 16px; }
+        .modal-card { background: white; border-radius: 16px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); position: relative; }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+        .modal-header h3 { font-size: 18px; color: var(--navy); }
+        .close-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-muted); }
+        .option-item { background: #F8FAFC; border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 12px; display: block; text-decoration: none; color: inherit; transition: all 0.2s; }
+        .option-item:hover { border-color: var(--primary); background: #EFF6FF; transform: translateY(-1px); }
+        .option-title { font-weight: 600; font-size: 15px; color: var(--navy); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+        .option-desc { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+        
         .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
         .stat-card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); }
         .stat-card .label { font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; }
@@ -48,8 +63,32 @@
     <div class="container">
         <div class="header-card">
             <h1>BÁO CÁO KỸ NĂNG THÀNH THẠO KHAN ACADEMY (KAV)</h1>
-            <p>Thời gian thống kê: 22/09/2026 13:17 | Nguồn: classroom.khanacademy.org</p>
-            <a href="BaoCao_KAV.xlsx" class="btn-download" download>📥 Tải file Excel Báo Cáo (.xlsx)</a>
+            <p>Thời gian thống kê: 22/09/2026 13:27 | Nguồn: classroom.khanacademy.org</p>
+            <div class="btn-group">
+                <a href="BaoCao_KAV.xlsx" class="btn-download" download>📥 Tải file Excel Báo Cáo (.xlsx)</a>
+                <button onclick="openModal()" class="btn-update">🔄 Cập nhật số liệu mới nhất</button>
+            </div>
+        </div>
+
+        <!-- Modal lựa chọn cập nhật -->
+        <div id="updateModal" class="modal-overlay" onclick="closeModalOnBg(event)">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <h3>🔄 Chọn Phương Thức Cập Nhật</h3>
+                    <button class="close-btn" onclick="closeModal()">&times;</button>
+                </div>
+                <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">
+                    Thầy/Cô có thể kích hoạt robot quét lại số liệu thực tế mới nhất theo 1 trong 2 cách:
+                </p>
+                <a href="https://github.com/thanhthaiagu/khan-academy-reporter/actions/workflows/daily_report.yml" target="_blank" class="option-item" onclick="closeModal()">
+                    <div class="option-title">☁️ Cách 1: Chạy từ xa trên GitHub Cloud (Khuyên dùng)</div>
+                    <div class="option-desc">Bấm vào đây để mở GitHub, chọn <b>Run workflow</b>. Máy chủ đám mây sẽ tự động quét số liệu mới và cập nhật lại trang này (khoảng 30 giây). Thao tác được trên cả điện thoại.</div>
+                </a>
+                <div class="option-item" style="cursor: default;">
+                    <div class="option-title">⚡ Cách 2: Chạy siêu tốc trên máy tính (9 giây)</div>
+                    <div class="option-desc">Nếu đang ngồi trên máy tính, thầy chỉ cần nhấp đúp vào biểu tượng <b>CAP_NHAT_BAO_CAO_KAV</b> ngoài màn hình Desktop. Hệ thống sẽ quét và làm mới trang này sau 9 giây.</div>
+                </div>
+            </div>
         </div>
         <div class="stats-grid">
             <div class="stat-card"><div class="label">Tổng Số Lớp</div><div class="value">20</div></div>
@@ -275,6 +314,15 @@
             for (let i = 0; i < tr.length; i++) {
                 tr[i].style.display = (tr[i].textContent.toLowerCase().indexOf(filter) > -1) ? "" : "none";
             }
+        }
+        function openModal() {
+            document.getElementById("updateModal").style.display = "flex";
+        }
+        function closeModal() {
+            document.getElementById("updateModal").style.display = "none";
+        }
+        function closeModalOnBg(e) {
+            if (e.target.id === "updateModal") closeModal();
         }
     </script>
 </body>

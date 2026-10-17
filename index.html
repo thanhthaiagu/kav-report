@@ -25,6 +25,45 @@
         .btn-update { display: inline-flex; align-items: center; gap: 8px; background: #10B981; color: white; padding: 10px 20px; border-radius: 8px; border: none; text-decoration: none; font-weight: 600; font-size: 14px; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.25); }
         .btn-update:hover { background: #059669; transform: translateY(-2px); }
         
+        /* Tab Navigation */
+        .tab-bar { display: flex; gap: 10px; margin-bottom: 20px; border-bottom: 2px solid var(--border); padding-bottom: 2px; flex-wrap: wrap; }
+        .tab-btn { background: transparent; border: none; outline: none; padding: 10px 18px; font-size: 15px; font-weight: 600; color: var(--text-muted); cursor: pointer; border-radius: 8px 8px 0 0; border-bottom: 3px solid transparent; transition: all 0.2s; }
+        .tab-btn:hover { color: var(--primary); background: #EFF6FF; }
+        .tab-btn.active { color: var(--primary-dark); border-bottom: 3px solid var(--primary); background: #EFF6FF; font-weight: 700; }
+        
+        /* Stats Cards */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .stat-card .label { font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; }
+        .stat-card .value { font-size: 28px; font-weight: 700; color: var(--navy); margin-top: 4px; }
+        
+        /* Table */
+        .table-card { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .table-toolbar { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+        .search-box { padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; width: 280px; font-size: 14px; outline: none; }
+        .search-box:focus { border-color: var(--primary); }
+        .table-container { overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; font-size: 14px; }
+        th { background: #F8FAFC; color: var(--text-muted); font-weight: 600; padding: 14px 16px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+        td { padding: 14px 16px; border-bottom: 1px solid var(--border); }
+        tr:hover td { background-color: #F8FAFC; }
+        
+        .badge { display: inline-block; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; }
+        .badge-6 { background: #FEF3C7; color: #92400E; }
+        .badge-7 { background: #DCFCE7; color: #166534; }
+        .badge-8 { background: #E0E7FF; color: #3730A3; }
+        .badge-9 { background: #FCE7F3; color: #9D174D; }
+        .badge-10 { background: #DBEAFE; color: #1E40AF; }
+        .badge-11 { background: #D1FAE5; color: #065F46; }
+        .badge-12 { background: #EDE9FE; color: #5B21B6; }
+        .badge-group { background: #F1F5F9; color: #475569; font-size: 11px; }
+        
+        .total-row { background: #EBF2FA; font-weight: 700; }
+        .total-row td { border-top: 2px solid var(--navy); }
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .highlight { font-weight: 600; color: var(--primary-dark); }
+        
         /* Modal Popup */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 999; justify-content: center; align-items: center; padding: 16px; }
         .modal-card { background: white; border-radius: 16px; max-width: 520px; width: 100%; padding: 28px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); position: relative; }
@@ -35,35 +74,13 @@
         .option-item:hover { border-color: var(--primary); background: #EFF6FF; transform: translateY(-1px); }
         .option-title { font-weight: 600; font-size: 15px; color: var(--navy); margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
         .option-desc { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
-        
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 24px; }
-        .stat-card { background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid var(--border); }
-        .stat-card .label { font-size: 13px; font-weight: 500; color: var(--text-muted); text-transform: uppercase; }
-        .stat-card .value { font-size: 28px; font-weight: 700; color: var(--navy); margin-top: 4px; }
-        .table-card { background: var(--card-bg); border-radius: 16px; border: 1px solid var(--border); overflow: hidden; }
-        .table-toolbar { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
-        .search-box { padding: 8px 16px; border: 1px solid var(--border); border-radius: 8px; width: 280px; font-size: 14px; outline: none; }
-        .table-container { overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; font-size: 14px; }
-        th { background: #F8FAFC; color: var(--text-muted); font-weight: 600; padding: 14px 16px; border-bottom: 1px solid var(--border); white-space: nowrap; }
-        td { padding: 14px 16px; border-bottom: 1px solid var(--border); }
-        tr:hover td { background-color: #F8FAFC; }
-        .badge { display: inline-block; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; }
-        .badge-10 { background: #DBEAFE; color: #1E40AF; }
-        .badge-11 { background: #D1FAE5; color: #065F46; }
-        .badge-12 { background: #EDE9FE; color: #5B21B6; }
-        .total-row { background: #EBF2FA; font-weight: 700; }
-        .total-row td { border-top: 2px solid var(--navy); }
-        .text-center { text-align: center; }
-        .text-right { text-align: right; }
-        .highlight { font-weight: 600; color: var(--primary-dark); }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header-card">
             <h1>BÁO CÁO KỸ NĂNG THÀNH THẠO KHAN ACADEMY (KAV)</h1>
-            <p>Thời gian thống kê: 17/10/2026 22:46 | Nguồn: classroom.khanacademy.org</p>
+            <p>Trường: THCS&THPT MONG THỌ | Thời gian thống kê: 17/10/2026 23:05 | Nguồn: classroom.khanacademy.org</p>
             <div class="btn-group">
                 <a href="BaoCao_KAV.xlsx" class="btn-download" download>📥 Tải file Excel Báo Cáo (.xlsx)</a>
                 <button onclick="openModal()" class="btn-update">🔄 Cập nhật số liệu mới nhất</button>
@@ -74,31 +91,46 @@
         <div id="updateModal" class="modal-overlay" onclick="closeModalOnBg(event)">
             <div class="modal-card">
                 <div class="modal-header">
-                    <h3>🔄 Chọn Phương Thức Cập Nhật</h3>
+                    <h3>🔄 Cập Nhật Số Liệu Báo Cáo</h3>
                     <button class="close-btn" onclick="closeModal()">&times;</button>
                 </div>
                 <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">
-                    Thầy/Cô có thể kích hoạt robot quét lại số liệu thực tế mới nhất theo 1 trong 2 cách:
+                    Thầy/Cô có thể cập nhật lại số liệu thực tế mới nhất từ Khan Academy:
                 </p>
-                <a href="https://github.com/thanhthaiagu/khan-academy-reporter/actions/workflows/daily_report.yml" target="_blank" class="option-item" onclick="closeModal()">
-                    <div class="option-title">☁️ Cách 1: Chạy từ xa trên GitHub Cloud (Khuyên dùng)</div>
-                    <div class="option-desc">Bấm vào đây để mở GitHub, chọn <b>Run workflow</b>. Máy chủ đám mây sẽ tự động quét số liệu mới và cập nhật lại trang này (khoảng 30 giây). Thao tác được trên cả điện thoại.</div>
-                </a>
                 <div class="option-item" style="cursor: default;">
-                    <div class="option-title">⚡ Cách 2: Chạy siêu tốc trên máy tính (9 giây)</div>
-                    <div class="option-desc">Nếu đang ngồi trên máy tính, thầy chỉ cần nhấp đúp vào biểu tượng <b>CAP_NHAT_BAO_CAO_KAV</b> ngoài màn hình Desktop. Hệ thống sẽ quét và làm mới trang này sau 9 giây.</div>
+                    <div class="option-title">⚡ Chạy trực tiếp trên máy tính (9 giây)</div>
+                    <div class="option-desc">Chỉ cần nhấp đúp vào biểu tượng <b>CAP_NHAT_BAO_CAO_KAV</b> ngoài màn hình Desktop. Hệ thống sẽ tự động quét dữ liệu cả 2 tài khoản THCS & THPT và làm mới trang này.</div>
+                </div>
+                <div style="margin-top: 16px; display: flex; gap: 8px;">
+                    <button onclick="location.reload()" style="flex: 1; padding: 10px; background: #1B365D; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px;">
+                        🔃 Làm mới trang này ngay (Reload)
+                    </button>
+                    <button onclick="closeModal()" style="padding: 10px 16px; background: #E2E8F0; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; color: var(--text-muted); font-size: 14px;">
+                        Đóng
+                    </button>
                 </div>
             </div>
         </div>
-        <div class="stats-grid">
-            <div class="stat-card"><div class="label">Tổng Số Lớp</div><div class="value">21</div></div>
-            <div class="stat-card"><div class="label">Tài Khoản Đã Tạo</div><div class="value">865</div></div>
-            <div class="stat-card"><div class="label">Đang Hoạt Động</div><div class="value">384</div></div>
-            <div class="stat-card"><div class="label">Kỹ Năng TB Thành Thạo</div><div class="value" style="color: #10B981;">2.6</div></div>
+
+        <!-- Thanh chuyển đổi Tab -->
+        <div class="tab-bar">
+            <button class="tab-btn active" onclick="switchTab('all')">🌐 Toàn Trường (33 lớp)</button>
+            <button class="tab-btn" onclick="switchTab('thpt')">🏫 Khối THPT (21 lớp)</button>
+            <button class="tab-btn" onclick="switchTab('thcs')">🏫 Khối THCS (12 lớp)</button>
         </div>
+
+        <!-- Thẻ thống kê động -->
+        <div class="stats-grid">
+            <div class="stat-card"><div class="label">Tổng Số Lớp</div><div class="value" id="statClasses">0</div></div>
+            <div class="stat-card"><div class="label">Tài Khoản Đã Tạo</div><div class="value" id="statCreated">0</div></div>
+            <div class="stat-card"><div class="label">Đang Hoạt Động</div><div class="value" id="statActive">0</div></div>
+            <div class="stat-card"><div class="label">Kỹ Năng TB Thành Thạo</div><div class="value" style="color: #10B981;" id="statAvg">0.0</div></div>
+        </div>
+
+        <!-- Bảng danh sách chi tiết -->
         <div class="table-card">
             <div class="table-toolbar">
-                <div style="font-weight: 600; color: var(--navy);">Chi Tiết Từng Lớp Học</div>
+                <div style="font-weight: 600; color: var(--navy);" id="tableTitle">Chi Tiết Từng Lớp Học</div>
                 <input type="text" id="searchInput" class="search-box" placeholder="🔍 Tìm kiếm lớp, giáo viên..." onkeyup="filterTable()">
             </div>
             <div class="table-container">
@@ -106,6 +138,7 @@
                     <thead>
                         <tr>
                             <th class="text-center">STT</th>
+                            <th class="text-center" id="colGroupHeader">Khối</th>
                             <th class="text-center">Mã Lớp</th>
                             <th>Tên Lớp Học</th>
                             <th class="text-center">Khóa Học</th>
@@ -114,216 +147,107 @@
                             <th class="text-right">Kỹ Năng TB Thành Thạo</th>
                         </tr>
                     </thead>
-                    <tbody>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">1</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">GC65CJ23</code></td>
-            <td style="font-weight: 500;">10A1_Năm học 2026-2027_Nguyễn Thị Yến Linh</td>
-            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-            <td class="text-right">44</td>
-            <td class="text-right highlight">7</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.4</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">2</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">H4S4C7P2</code></td>
-            <td style="font-weight: 500;">10A2_Năm học 2026-2027_Trần Minh Mẫn</td>
-            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-            <td class="text-right">47</td>
-            <td class="text-right highlight">4</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">3</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">UWTVBASW</code></td>
-            <td style="font-weight: 500;">10A3_Năm học 2026-2027_Văn Thị Bích Thùy</td>
-            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-            <td class="text-right">46</td>
-            <td class="text-right highlight">3</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.2</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">4</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">FHGUSN4Z</code></td>
-            <td style="font-weight: 500;">10A4_Năm học 2026-2027_Văn Thị Bích Thùy</td>
-            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-            <td class="text-right">44</td>
-            <td class="text-right highlight">1</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.0</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">5</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">4NH4T2A4</code></td>
-            <td style="font-weight: 500;">10A5_Năm học 2026-2027_Nguyễn Ngọc Thịnh</td>
-            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-            <td class="text-right">47</td>
-            <td class="text-right highlight">23</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">2.6</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">6</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">VZQP4YAF</code></td>
-            <td style="font-weight: 500;">10A6_Năm học 2026-2027_Nguyễn Ngọc Thịnh</td>
-            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-            <td class="text-right">44</td>
-            <td class="text-right highlight">22</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">3.2</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">7</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">KMR6W4FR</code></td>
-            <td style="font-weight: 500;">10A7_Năm học 2026-2027_Nguyễn Chí Huy</td>
-            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-            <td class="text-right">39</td>
-            <td class="text-right highlight">30</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">9.6</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">8</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">DZWFS5NS</code></td>
-            <td style="font-weight: 500;">10A8_Năm học 2026-2027_Nguyễn Thành Thái</td>
-            <td class="text-center"><span class="badge badge-10">Toán 10</span></td>
-            <td class="text-right">45</td>
-            <td class="text-right highlight">22</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">3.1</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">9</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">PJP8ZHQ5</code></td>
-            <td style="font-weight: 500;">11A1_Năm học 2026-2027_Nguyễn Ngọc Thịnh</td>
-            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-            <td class="text-right">35</td>
-            <td class="text-right highlight">6</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">1.3</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">10</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">UQ77Z4F8</code></td>
-            <td style="font-weight: 500;">11A2_Năm học 2026-2027_Nguyễn Thị Yến Linh</td>
-            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-            <td class="text-right">40</td>
-            <td class="text-right highlight">11</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">1.9</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">11</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">6JZUDEYH</code></td>
-            <td style="font-weight: 500;">11A3_Năm Học 2026-2027_Mai Thành Công</td>
-            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-            <td class="text-right">44</td>
-            <td class="text-right highlight">9</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">1.1</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">12</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">NFPJ3YUZ</code></td>
-            <td style="font-weight: 500;">11A4_Năm học 2026-2027_Nguyễn Thị Yến Linh</td>
-            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-            <td class="text-right">44</td>
-            <td class="text-right highlight">36</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">7.7</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">13</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">EJ5JBTPM</code></td>
-            <td style="font-weight: 500;">11A5_ Năm Học 2026-2027_Nguyễn Ngọc Thịnh</td>
-            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-            <td class="text-right">33</td>
-            <td class="text-right highlight">8</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.8</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">14</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">N6D6F43M</code></td>
-            <td style="font-weight: 500;">11A6_Năm học 2026-2027_Mai Thành Công</td>
-            <td class="text-center"><span class="badge badge-11">Toán 11</span></td>
-            <td class="text-right">37</td>
-            <td class="text-right highlight">16</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">2.0</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">15</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Y4KXVHFH</code></td>
-            <td style="font-weight: 500;">12A1-Năm học 2026-2027_Trần Thị Bội Nhung</td>
-            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-            <td class="text-right">35</td>
-            <td class="text-right highlight">32</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">3.3</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">16</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">7B39B8FY</code></td>
-            <td style="font-weight: 500;">12A2 - Năm học 2026-2027_Nguyễn Thành Thái</td>
-            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-            <td class="text-right">44</td>
-            <td class="text-right highlight">37</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">3.5</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">17</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">2DXNAW8H</code></td>
-            <td style="font-weight: 500;">12A3-Năm học 2026-2027_Mai Thành Công</td>
-            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-            <td class="text-right">40</td>
-            <td class="text-right highlight">11</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.7</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">18</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">2T2BZU9H</code></td>
-            <td style="font-weight: 500;">12A4-Năm học 2026-2027_Nguyễn Thành Thái</td>
-            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-            <td class="text-right">37</td>
-            <td class="text-right highlight">35</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">6.9</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">19</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">MF9R2SND</code></td>
-            <td style="font-weight: 500;">12A5 - Năm học 2026-2027_Trần Thị Bội Nhung</td>
-            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-            <td class="text-right">50</td>
-            <td class="text-right highlight">27</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">1.9</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">20</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">BQKUESU3</code></td>
-            <td style="font-weight: 500;">12A6 _Năm học 2026-2027_Nguyễn Thành Thái</td>
-            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-            <td class="text-right">42</td>
-            <td class="text-right highlight">36</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">3.7</td>
-        </tr>
-        <tr>
-            <td class="text-center" style="color: var(--text-muted);">21</td>
-            <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">Q96EYDVA</code></td>
-            <td style="font-weight: 500;">12A7 - Năm học 2026 - 2027_Trần Thị Bội Nhung</td>
-            <td class="text-center"><span class="badge badge-12">Toán 12</span></td>
-            <td class="text-right">28</td>
-            <td class="text-right highlight">8</td>
-            <td class="text-right" style="font-weight: 700; color: var(--primary);">0.8</td>
-        </tr></tbody>
+                    <tbody id="tableBody"></tbody>
                     <tfoot>
-                        <tr class="total-row">
-                            <td colspan="4" class="text-right">TỔNG CỘNG / TRUNG BÌNH TOÀN BỘ:</td>
-                            <td class="text-right">865</td>
-                            <td class="text-right" style="color: #0D47A1;">384</td>
-                            <td class="text-right" style="color: #10B981; font-size: 16px;">2.6</td>
-                        </tr>
+                        <tr class="total-row" id="tableFooter"></tr>
                     </tfoot>
                 </table>
             </div>
         </div>
     </div>
+
     <script>
+        const reportData = {"all": {"title": "Toàn Trường THCS & THPT", "classes": [{"class_id": "GC65CJ23", "class_name": "10A1_Năm học 2026-2027_Nguyễn Thị Yến Linh", "course_name": "Toán 10", "created_students": 44, "active_students": 7, "avg_proficient_skills": 0.4, "group": "Khối THPT"}, {"class_id": "H4S4C7P2", "class_name": "10A2_Năm học 2026-2027_Trần Minh Mẫn", "course_name": "Toán 10", "created_students": 47, "active_students": 4, "avg_proficient_skills": 0.0, "group": "Khối THPT"}, {"class_id": "UWTVBASW", "class_name": "10A3_Năm học 2026-2027_Văn Thị Bích Thùy", "course_name": "Toán 10", "created_students": 46, "active_students": 3, "avg_proficient_skills": 0.2, "group": "Khối THPT"}, {"class_id": "FHGUSN4Z", "class_name": "10A4_Năm học 2026-2027_Văn Thị Bích Thùy", "course_name": "Toán 10", "created_students": 44, "active_students": 1, "avg_proficient_skills": 0.0, "group": "Khối THPT"}, {"class_id": "4NH4T2A4", "class_name": "10A5_Năm học 2026-2027_Nguyễn Ngọc Thịnh", "course_name": "Toán 10", "created_students": 47, "active_students": 23, "avg_proficient_skills": 2.6, "group": "Khối THPT"}, {"class_id": "VZQP4YAF", "class_name": "10A6_Năm học 2026-2027_Nguyễn Ngọc Thịnh", "course_name": "Toán 10", "created_students": 44, "active_students": 22, "avg_proficient_skills": 3.2, "group": "Khối THPT"}, {"class_id": "KMR6W4FR", "class_name": "10A7_Năm học 2026-2027_Nguyễn Chí Huy", "course_name": "Toán 10", "created_students": 39, "active_students": 30, "avg_proficient_skills": 9.6, "group": "Khối THPT"}, {"class_id": "DZWFS5NS", "class_name": "10A8_Năm học 2026-2027_Nguyễn Thành Thái", "course_name": "Toán 10", "created_students": 45, "active_students": 22, "avg_proficient_skills": 3.1, "group": "Khối THPT"}, {"class_id": "PJP8ZHQ5", "class_name": "11A1_Năm học 2026-2027_Nguyễn Ngọc Thịnh", "course_name": "Toán 11", "created_students": 35, "active_students": 6, "avg_proficient_skills": 1.3, "group": "Khối THPT"}, {"class_id": "UQ77Z4F8", "class_name": "11A2_Năm học 2026-2027_Nguyễn Thị Yến Linh", "course_name": "Toán 11", "created_students": 40, "active_students": 11, "avg_proficient_skills": 1.9, "group": "Khối THPT"}, {"class_id": "6JZUDEYH", "class_name": "11A3_Năm Học 2026-2027_Mai Thành Công", "course_name": "Toán 11", "created_students": 44, "active_students": 9, "avg_proficient_skills": 1.1, "group": "Khối THPT"}, {"class_id": "NFPJ3YUZ", "class_name": "11A4_Năm học 2026-2027_Nguyễn Thị Yến Linh", "course_name": "Toán 11", "created_students": 44, "active_students": 36, "avg_proficient_skills": 7.7, "group": "Khối THPT"}, {"class_id": "EJ5JBTPM", "class_name": "11A5_ Năm Học 2026-2027_Nguyễn Ngọc Thịnh", "course_name": "Toán 11", "created_students": 33, "active_students": 8, "avg_proficient_skills": 0.8, "group": "Khối THPT"}, {"class_id": "N6D6F43M", "class_name": "11A6_Năm học 2026-2027_Mai Thành Công", "course_name": "Toán 11", "created_students": 37, "active_students": 16, "avg_proficient_skills": 2.0, "group": "Khối THPT"}, {"class_id": "Y4KXVHFH", "class_name": "12A1-Năm học 2026-2027_Trần Thị Bội Nhung", "course_name": "Toán 12", "created_students": 35, "active_students": 32, "avg_proficient_skills": 3.3, "group": "Khối THPT"}, {"class_id": "7B39B8FY", "class_name": "12A2 - Năm học 2026-2027_Nguyễn Thành Thái", "course_name": "Toán 12", "created_students": 44, "active_students": 37, "avg_proficient_skills": 3.5, "group": "Khối THPT"}, {"class_id": "2DXNAW8H", "class_name": "12A3-Năm học 2026-2027_Mai Thành Công", "course_name": "Toán 12", "created_students": 40, "active_students": 11, "avg_proficient_skills": 0.7, "group": "Khối THPT"}, {"class_id": "2T2BZU9H", "class_name": "12A4-Năm học 2026-2027_Nguyễn Thành Thái", "course_name": "Toán 12", "created_students": 37, "active_students": 35, "avg_proficient_skills": 6.9, "group": "Khối THPT"}, {"class_id": "MF9R2SND", "class_name": "12A5 - Năm học 2026-2027_Trần Thị Bội Nhung", "course_name": "Toán 12", "created_students": 50, "active_students": 27, "avg_proficient_skills": 1.9, "group": "Khối THPT"}, {"class_id": "BQKUESU3", "class_name": "12A6 _Năm học 2026-2027_Nguyễn Thành Thái", "course_name": "Toán 12", "created_students": 42, "active_students": 36, "avg_proficient_skills": 3.7, "group": "Khối THPT"}, {"class_id": "Q96EYDVA", "class_name": "12A7 - Năm học 2026 - 2027_Trần Thị Bội Nhung", "course_name": "Toán 12", "created_students": 28, "active_students": 8, "avg_proficient_skills": 0.8, "group": "Khối THPT"}, {"class_id": "THCS-6A1", "class_name": "6A1_Năm học 2026–2027_Lư Ngọc Cẩm", "course_name": "Toán 6", "created_students": 44, "active_students": 12, "avg_proficient_skills": 0.7, "group": "Khối THCS"}, {"class_id": "THCS-6A2", "class_name": "6A2_Năm học: 2026–2027_Trần Thị Lý", "course_name": "Toán 6", "created_students": 44, "active_students": 17, "avg_proficient_skills": 1.9, "group": "Khối THCS"}, {"class_id": "THCS-6A3", "class_name": "6A3_Năm học: 2026–2027_Trần Thị Lý", "course_name": "Toán 6", "created_students": 42, "active_students": 12, "avg_proficient_skills": 0.7, "group": "Khối THCS"}, {"class_id": "THCS-7A1", "class_name": "7A1– Đỗ Thị Kim Mai–2026–2027", "course_name": "Toán 7", "created_students": 43, "active_students": 2, "avg_proficient_skills": 0.0, "group": "Khối THCS"}, {"class_id": "THCS-7A2", "class_name": "7A2– 2026–2027– Nguyễn Thị Mỹ Trinh", "course_name": "Toán 7", "created_students": 45, "active_students": 4, "avg_proficient_skills": 0.3, "group": "Khối THCS"}, {"class_id": "THCS-7A3", "class_name": "7A3– 2026–2027– Nguyễn Thị Mỹ Trinh", "course_name": "Toán 7", "created_students": 44, "active_students": 13, "avg_proficient_skills": 1.4, "group": "Khối THCS"}, {"class_id": "THCS-7A4", "class_name": "7A4– 2026–2027– Nguyễn Thị Mỹ Trinh", "course_name": "Toán 7", "created_students": 48, "active_students": 9, "avg_proficient_skills": 0.4, "group": "Khối THCS"}, {"class_id": "THCS-8A1", "class_name": "8A1– 2026–2027– Nguyễn Thị Thìn", "course_name": "Toán 8", "created_students": 47, "active_students": 13, "avg_proficient_skills": 1.4, "group": "Khối THCS"}, {"class_id": "THCS-8A2", "class_name": "8A2–Đỗ Thị Kim Mai–2026–2027", "course_name": "Toán 8", "created_students": 55, "active_students": 17, "avg_proficient_skills": 2.7, "group": "Khối THCS"}, {"class_id": "THCS-8A3", "class_name": "8A3–Đỗ Thị Kim Mai–2026–2027", "course_name": "Toán 8", "created_students": 52, "active_students": 9, "avg_proficient_skills": 0.3, "group": "Khối THCS"}, {"class_id": "THCS-9A1", "class_name": "9A1– 2026–2027–Nguyễn Thị Thìn", "course_name": "Toán 9", "created_students": 48, "active_students": 18, "avg_proficient_skills": 2.2, "group": "Khối THCS"}, {"class_id": "THCS-9A2", "class_name": "9A2–2026–2027–Nguyễn Thị Thìn", "course_name": "Toán 9", "created_students": 47, "active_students": 20, "avg_proficient_skills": 2.0, "group": "Khối THCS"}]}, "thpt": {"title": "Khối THPT (Toán 10, 11, 12)", "classes": [{"class_id": "GC65CJ23", "class_name": "10A1_Năm học 2026-2027_Nguyễn Thị Yến Linh", "course_name": "Toán 10", "created_students": 44, "active_students": 7, "avg_proficient_skills": 0.4, "group": "Khối THPT"}, {"class_id": "H4S4C7P2", "class_name": "10A2_Năm học 2026-2027_Trần Minh Mẫn", "course_name": "Toán 10", "created_students": 47, "active_students": 4, "avg_proficient_skills": 0.0, "group": "Khối THPT"}, {"class_id": "UWTVBASW", "class_name": "10A3_Năm học 2026-2027_Văn Thị Bích Thùy", "course_name": "Toán 10", "created_students": 46, "active_students": 3, "avg_proficient_skills": 0.2, "group": "Khối THPT"}, {"class_id": "FHGUSN4Z", "class_name": "10A4_Năm học 2026-2027_Văn Thị Bích Thùy", "course_name": "Toán 10", "created_students": 44, "active_students": 1, "avg_proficient_skills": 0.0, "group": "Khối THPT"}, {"class_id": "4NH4T2A4", "class_name": "10A5_Năm học 2026-2027_Nguyễn Ngọc Thịnh", "course_name": "Toán 10", "created_students": 47, "active_students": 23, "avg_proficient_skills": 2.6, "group": "Khối THPT"}, {"class_id": "VZQP4YAF", "class_name": "10A6_Năm học 2026-2027_Nguyễn Ngọc Thịnh", "course_name": "Toán 10", "created_students": 44, "active_students": 22, "avg_proficient_skills": 3.2, "group": "Khối THPT"}, {"class_id": "KMR6W4FR", "class_name": "10A7_Năm học 2026-2027_Nguyễn Chí Huy", "course_name": "Toán 10", "created_students": 39, "active_students": 30, "avg_proficient_skills": 9.6, "group": "Khối THPT"}, {"class_id": "DZWFS5NS", "class_name": "10A8_Năm học 2026-2027_Nguyễn Thành Thái", "course_name": "Toán 10", "created_students": 45, "active_students": 22, "avg_proficient_skills": 3.1, "group": "Khối THPT"}, {"class_id": "PJP8ZHQ5", "class_name": "11A1_Năm học 2026-2027_Nguyễn Ngọc Thịnh", "course_name": "Toán 11", "created_students": 35, "active_students": 6, "avg_proficient_skills": 1.3, "group": "Khối THPT"}, {"class_id": "UQ77Z4F8", "class_name": "11A2_Năm học 2026-2027_Nguyễn Thị Yến Linh", "course_name": "Toán 11", "created_students": 40, "active_students": 11, "avg_proficient_skills": 1.9, "group": "Khối THPT"}, {"class_id": "6JZUDEYH", "class_name": "11A3_Năm Học 2026-2027_Mai Thành Công", "course_name": "Toán 11", "created_students": 44, "active_students": 9, "avg_proficient_skills": 1.1, "group": "Khối THPT"}, {"class_id": "NFPJ3YUZ", "class_name": "11A4_Năm học 2026-2027_Nguyễn Thị Yến Linh", "course_name": "Toán 11", "created_students": 44, "active_students": 36, "avg_proficient_skills": 7.7, "group": "Khối THPT"}, {"class_id": "EJ5JBTPM", "class_name": "11A5_ Năm Học 2026-2027_Nguyễn Ngọc Thịnh", "course_name": "Toán 11", "created_students": 33, "active_students": 8, "avg_proficient_skills": 0.8, "group": "Khối THPT"}, {"class_id": "N6D6F43M", "class_name": "11A6_Năm học 2026-2027_Mai Thành Công", "course_name": "Toán 11", "created_students": 37, "active_students": 16, "avg_proficient_skills": 2.0, "group": "Khối THPT"}, {"class_id": "Y4KXVHFH", "class_name": "12A1-Năm học 2026-2027_Trần Thị Bội Nhung", "course_name": "Toán 12", "created_students": 35, "active_students": 32, "avg_proficient_skills": 3.3, "group": "Khối THPT"}, {"class_id": "7B39B8FY", "class_name": "12A2 - Năm học 2026-2027_Nguyễn Thành Thái", "course_name": "Toán 12", "created_students": 44, "active_students": 37, "avg_proficient_skills": 3.5, "group": "Khối THPT"}, {"class_id": "2DXNAW8H", "class_name": "12A3-Năm học 2026-2027_Mai Thành Công", "course_name": "Toán 12", "created_students": 40, "active_students": 11, "avg_proficient_skills": 0.7, "group": "Khối THPT"}, {"class_id": "2T2BZU9H", "class_name": "12A4-Năm học 2026-2027_Nguyễn Thành Thái", "course_name": "Toán 12", "created_students": 37, "active_students": 35, "avg_proficient_skills": 6.9, "group": "Khối THPT"}, {"class_id": "MF9R2SND", "class_name": "12A5 - Năm học 2026-2027_Trần Thị Bội Nhung", "course_name": "Toán 12", "created_students": 50, "active_students": 27, "avg_proficient_skills": 1.9, "group": "Khối THPT"}, {"class_id": "BQKUESU3", "class_name": "12A6 _Năm học 2026-2027_Nguyễn Thành Thái", "course_name": "Toán 12", "created_students": 42, "active_students": 36, "avg_proficient_skills": 3.7, "group": "Khối THPT"}, {"class_id": "Q96EYDVA", "class_name": "12A7 - Năm học 2026 - 2027_Trần Thị Bội Nhung", "course_name": "Toán 12", "created_students": 28, "active_students": 8, "avg_proficient_skills": 0.8, "group": "Khối THPT"}]}, "thcs": {"title": "Khối THCS (Toán 6, 7, 8, 9)", "classes": [{"class_id": "THCS-6A1", "class_name": "6A1_Năm học 2026–2027_Lư Ngọc Cẩm", "course_name": "Toán 6", "created_students": 44, "active_students": 12, "avg_proficient_skills": 0.7, "group": "Khối THCS"}, {"class_id": "THCS-6A2", "class_name": "6A2_Năm học: 2026–2027_Trần Thị Lý", "course_name": "Toán 6", "created_students": 44, "active_students": 17, "avg_proficient_skills": 1.9, "group": "Khối THCS"}, {"class_id": "THCS-6A3", "class_name": "6A3_Năm học: 2026–2027_Trần Thị Lý", "course_name": "Toán 6", "created_students": 42, "active_students": 12, "avg_proficient_skills": 0.7, "group": "Khối THCS"}, {"class_id": "THCS-7A1", "class_name": "7A1– Đỗ Thị Kim Mai–2026–2027", "course_name": "Toán 7", "created_students": 43, "active_students": 2, "avg_proficient_skills": 0.0, "group": "Khối THCS"}, {"class_id": "THCS-7A2", "class_name": "7A2– 2026–2027– Nguyễn Thị Mỹ Trinh", "course_name": "Toán 7", "created_students": 45, "active_students": 4, "avg_proficient_skills": 0.3, "group": "Khối THCS"}, {"class_id": "THCS-7A3", "class_name": "7A3– 2026–2027– Nguyễn Thị Mỹ Trinh", "course_name": "Toán 7", "created_students": 44, "active_students": 13, "avg_proficient_skills": 1.4, "group": "Khối THCS"}, {"class_id": "THCS-7A4", "class_name": "7A4– 2026–2027– Nguyễn Thị Mỹ Trinh", "course_name": "Toán 7", "created_students": 48, "active_students": 9, "avg_proficient_skills": 0.4, "group": "Khối THCS"}, {"class_id": "THCS-8A1", "class_name": "8A1– 2026–2027– Nguyễn Thị Thìn", "course_name": "Toán 8", "created_students": 47, "active_students": 13, "avg_proficient_skills": 1.4, "group": "Khối THCS"}, {"class_id": "THCS-8A2", "class_name": "8A2–Đỗ Thị Kim Mai–2026–2027", "course_name": "Toán 8", "created_students": 55, "active_students": 17, "avg_proficient_skills": 2.7, "group": "Khối THCS"}, {"class_id": "THCS-8A3", "class_name": "8A3–Đỗ Thị Kim Mai–2026–2027", "course_name": "Toán 8", "created_students": 52, "active_students": 9, "avg_proficient_skills": 0.3, "group": "Khối THCS"}, {"class_id": "THCS-9A1", "class_name": "9A1– 2026–2027–Nguyễn Thị Thìn", "course_name": "Toán 9", "created_students": 48, "active_students": 18, "avg_proficient_skills": 2.2, "group": "Khối THCS"}, {"class_id": "THCS-9A2", "class_name": "9A2–2026–2027–Nguyễn Thị Thìn", "course_name": "Toán 9", "created_students": 47, "active_students": 20, "avg_proficient_skills": 2.0, "group": "Khối THCS"}]}};
+        let currentTab = 'all';
+
+        function getBadgeClass(course) {
+            const c = String(course || "");
+            if (c.includes("6")) return "badge-6";
+            if (c.includes("7")) return "badge-7";
+            if (c.includes("8")) return "badge-8";
+            if (c.includes("9")) return "badge-9";
+            if (c.includes("10")) return "badge-10";
+            if (c.includes("11")) return "badge-11";
+            if (c.includes("12")) return "badge-12";
+            return "badge-10";
+        }
+
+        function switchTab(tabKey) {
+            currentTab = tabKey;
+            document.querySelectorAll(".tab-btn").forEach(btn => btn.classList.remove("active"));
+            if (event && event.target) {
+                event.target.classList.add("active");
+            } else {
+                const btns = document.querySelectorAll(".tab-btn");
+                if (tabKey === 'all') btns[0].classList.add("active");
+                else if (tabKey === 'thpt') btns[1].classList.add("active");
+                else if (tabKey === 'thcs') btns[2].classList.add("active");
+            }
+            renderReport();
+        }
+
+        function renderReport() {
+            const dataObj = reportData[currentTab];
+            const classes = dataObj.classes;
+            const isAll = (currentTab === 'all');
+            
+            document.getElementById("colGroupHeader").style.display = isAll ? "" : "none";
+            document.getElementById("tableTitle").innerText = "Chi Tiết: " + dataObj.title;
+
+            let totalCreated = 0;
+            let totalActive = 0;
+            let totalSkills = 0;
+
+            let rowsHtml = "";
+            classes.forEach((c, idx) => {
+                totalCreated += (c.created_students || 0);
+                totalActive += (c.active_students || 0);
+                totalSkills += (c.avg_proficient_skills || 0.0);
+
+                const badgeCls = getBadgeClass(c.course_name);
+                const groupTd = isAll ? `<td class="text-center"><span class="badge badge-group">${c.group}</span></td>` : "";
+
+                rowsHtml += `
+                <tr>
+                    <td class="text-center" style="color: var(--text-muted);">${idx + 1}</td>
+                    ${groupTd}
+                    <td class="text-center"><code style="background: #F1F5F9; padding: 2px 6px; border-radius: 4px; font-weight: 600;">${c.class_id}</code></td>
+                    <td style="font-weight: 500;">${c.class_name}</td>
+                    <td class="text-center"><span class="badge ${badgeCls}">${c.course_name}</span></td>
+                    <td class="text-right">${(c.created_students || 0).toLocaleString()}</td>
+                    <td class="text-right highlight">${(c.active_students || 0).toLocaleString()}</td>
+                    <td class="text-right" style="font-weight: 700; color: var(--primary);">${(c.avg_proficient_skills || 0.0).toFixed(1)}</td>
+                </tr>`;
+            });
+
+            const avgOverall = classes.length ? (totalSkills / classes.length).toFixed(1) : "0.0";
+
+            document.getElementById("statClasses").innerText = classes.length;
+            document.getElementById("statCreated").innerText = totalCreated.toLocaleString();
+            document.getElementById("statActive").innerText = totalActive.toLocaleString();
+            document.getElementById("statAvg").innerText = avgOverall;
+
+            document.getElementById("tableBody").innerHTML = rowsHtml;
+
+            const colspan = isAll ? 5 : 4;
+            document.getElementById("tableFooter").innerHTML = `
+                <td colspan="${colspan}" class="text-right">TỔNG CỘNG / TRUNG BÌNH:</td>
+                <td class="text-right">${totalCreated.toLocaleString()}</td>
+                <td class="text-right" style="color: #0D47A1;">${totalActive.toLocaleString()}</td>
+                <td class="text-right" style="color: #10B981; font-size: 16px;">${avgOverall}</td>
+            `;
+
+            filterTable();
+        }
+
         function filterTable() {
             const filter = document.getElementById("searchInput").value.toLowerCase();
-            const tr = document.getElementById("reportTable").getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+            const tr = document.getElementById("tableBody").getElementsByTagName("tr");
             for (let i = 0; i < tr.length; i++) {
                 tr[i].style.display = (tr[i].textContent.toLowerCase().indexOf(filter) > -1) ? "" : "none";
             }
         }
+
         function openModal() {
             document.getElementById("updateModal").style.display = "flex";
         }
@@ -333,6 +257,9 @@
         function closeModalOnBg(e) {
             if (e.target.id === "updateModal") closeModal();
         }
+
+        // Khởi tạo ban đầu
+        renderReport();
     </script>
 </body>
 </html>
